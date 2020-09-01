@@ -1,0 +1,19 @@
+<%- include('_header.ejs') %>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <% tutor.forEach(tutor => { %>
+                    <div class="card" style="width:50%;">
+                        <h3>Tutor <%= tutor.firstname %></h1>
+                        <div>Last name:<%= tutor.lastname %></div>
+                        <div>Tutor: <%= tutor.tutor %></div>
+                        <div>Subjects: <%= tutor.subjects %></div>
+                        <a class="btn btn-primary btn-lg" href="/tutor/schedule" role="button">Schedule session with tutor</a>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('_footer.ejs') %>
+</html>

@@ -123,5 +123,16 @@ app.set('view engine', 'ejs')
 
 
 app.get('/', async(req, res)=>{
-    res.send("Front Page")
+  const tutors = await UserDetails.find().sort({
+      createdAt: 'desc'
+  })
+
+
+
+  if(req.user && req.user.admin === true){
+    res.redirect("/admin");
+  }
+  else{
+    res.render('tutor/index', { tutor : tutors})
+  }
 })

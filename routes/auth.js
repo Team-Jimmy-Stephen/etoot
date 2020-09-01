@@ -67,6 +67,7 @@ router.post("/register", async(req, res) => {
     var firstname = req.body.firstname
     var lastname = req.body.lastname
     
+ 
 
     // hash password
     const salt = await bcrypt.genSalt(10);
