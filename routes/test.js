@@ -6,7 +6,10 @@ const router = express.Router()
 
 
 router.get('/test', async(req, res)=>{
-    res.send("test world")
+  
+    res.sendFile('jqtest.html', {root: __dirname })
+    //res.sendFile("jqtest.html");
+    //res.send("test world")
   }) 
 
   module.exports = router
