@@ -65,7 +65,7 @@ async function accessSecretVersion(name = 'projects/1093506486018/secrets/ATLAS_
 const dev = true 
 
 if(dev){
-  const uri = process.env.ATLAS_URI
+  const uri = "mongodb+srv://jim:fvS4lESuxYbsRDA1@cluster0.evv74.mongodb.net/ecomm?retryWrites=true&w=majority"
 
   mongoose.connect(uri, {
     useNewUrlParser: true,
@@ -112,11 +112,13 @@ app.use(methodOverride('_method'))
 const tutorRouter = require('./routes/tutor');
 const authRouter = require('./routes/auth')
 
+
 app.use('/tutor', tutorRouter)
 app.use('/', authRouter)
 
-
-
+// test a3
+const testRouter = require('./routes/test')
+app.use('/test', testRouter)
 
 
 app.set('view engine', 'ejs')
