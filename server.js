@@ -138,3 +138,4 @@ app.get('/', async(req, res)=>{
     res.render('tutor/index', { tutor : tutors})
   }
 })
+

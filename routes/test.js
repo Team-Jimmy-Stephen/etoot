@@ -7,7 +7,9 @@ const router = express.Router()
 
 router.get('/test', async(req, res)=>{
   
-    res.sendFile('jqtest.html', {root: __dirname })
+    res.sendFile('jqtest.html', {root: __dirname})
+   
+    //res.sendFile('jqtest.html', {root: __dirname })
     //res.sendFile("jqtest.html");
     //res.send("test world")
   }) 

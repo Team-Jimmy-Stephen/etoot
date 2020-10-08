@@ -9,7 +9,6 @@ const bcrypt = require('bcryptjs')
 const userDetail = require('../models/user')
 const UserDetails = mongoose.model('userInfo', userDetail, 'userInfo')
 
-
 router.post('/login', (req, res, next) => {
   passport.authenticate('local',
   (err, user, info) => {
@@ -36,8 +35,6 @@ router.get('/login',  (req, res) => {
   res.render('auth/login')
 }
 );
-
-
 
 router.get('/admin',  connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
   if(req.user && req.user.admin == true){
