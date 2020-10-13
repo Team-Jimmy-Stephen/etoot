@@ -3,8 +3,11 @@ const app = express();
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config();
 
+// app config
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log('App listening on port ' + port));
+
+// listen
+app.listen(port, () => console.log(`listening on localhost:${port}`));
 
 
 app.use(express.static(__dirname));
