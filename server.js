@@ -114,10 +114,12 @@ app.use(methodOverride('_method'))
 
 const tutorRouter = require('./routes/tutor');
 const authRouter = require('./routes/auth')
+const appRouter = require('./routes/appointment')
 
 
 app.use('/tutor', tutorRouter)
 app.use('/', authRouter)
+app.use('/app', appRouter)
 
 // test a3
 const testRouter = require('./routes/test')
