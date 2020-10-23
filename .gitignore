@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+.gcloudignore
+app.yaml
 .env
 node_modules
 # Diagnostic reports (https://nodejs.org/api/report.html)
