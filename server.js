@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv').config();
 
 // app config
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 // listen
 app.listen(port, () => console.log(`listening on localhost:${port}`));
