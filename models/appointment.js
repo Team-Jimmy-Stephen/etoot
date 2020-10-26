@@ -3,11 +3,7 @@ const User = require('./user')
 
 const appointmentSchema = new mongoose.Schema({
     tutor: {
-        type: User,
-        required: true
-    },
-    tutee: {
-        type: User,
+        type: String,
         required: true
     },
     meeting: {

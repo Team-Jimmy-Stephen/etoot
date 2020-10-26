@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
+import axios from 'axios'
 
 export default class CreateAppointment extends Component{
     constructor(props){
@@ -64,8 +65,10 @@ export default class CreateAppointment extends Component{
         }
 
         console.log(appointment)
+        axios.post('http://localhost:8080/app', appointment)
+        .then(res => console.log(res.data))
 
-        // window.location = "/";
+        window.location = "/";
     }
 
 
