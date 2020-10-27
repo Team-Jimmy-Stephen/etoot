@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config();
+const cors = require('cors')
+
+app.use(cors())
+
 
 // app config
 const port = process.env.PORT || 8080;
@@ -68,7 +72,7 @@ async function accessSecretVersion(name = 'projects/1093506486018/secrets/ATLAS_
 const dev = true 
 
 if(dev){
-  const uri = "mongodb+srv://jim:fvS4lESuxYbsRDA1@cluster0.evv74.mongodb.net/ecomm?retryWrites=true&w=majority"
+  const uri = "mongodb+srv://jim:fvS4lESuxYbsRDA1@cluster0.evv74.mongodb.net/etoot?retryWrites=true&w=majority"
 
   mongoose.connect(uri, {
     useNewUrlParser: true,
@@ -143,4 +147,3 @@ app.get('/', async(req, res)=>{
     res.render('tutor/index', { tutor : tutors})
   }
 })
-

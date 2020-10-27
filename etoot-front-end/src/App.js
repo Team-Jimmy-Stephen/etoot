@@ -1,32 +1,23 @@
-import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./Home";
-import Header from './Header';
-import Login from './Login';
-
-// npm install @material-ui/core @material-ui/icons
-// npm install react-router-dom
+import "bootstrap/dist/css/bootstrap.min.css"
+import {BrowserRouter as Router, Route} from "react-router-dom"
+import TutorList from "./components/tutor-list"
+import Login from "./components/login"
+import Register from "./components/register"
+import CreateAppointment from "./components/create-appointment"
+import Navbar from "./components/navbar.component"
 
 function App() {
-
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          
-          <Route path="/login">
-            <Login />
-          </Route>
-
-          <Route path="/">
-            <Header />
-            <Home />
-          </Route>
-
-        </Switch>
-      </Router>
+  <Router>
+    <div className="container">
+      <Navbar />
     </div>
+    <Route path ="/" exact component={TutorList} />
+    <Route path ="/login" exact component={Login} />
+    <Route path ="/register" exact component={Register} />
+    <Route path ="/appointment" exact component={CreateAppointment} />
+  </Router>
   );
 }
 

@@ -17,20 +17,19 @@ router.get('/admin', async (req,res)=>{
 
 })
 
-router.get('/schedule/:id', (req,res) => {
-    res.render('appointment/new', {appointment: new Appointment(), id: req.params.id})
+router.get('/schedule', (req,res) => {
+    res.render('appointment/new', {appointment: new Appointment()})
 })
 
 
 router.post('/', async (req, res, next) => {
     console.log(req.body)
     const appointment = new Appointment({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        phonenumber: req.body.phonenumber,
+        tutor: req.body.username,
         course: req.body.course,
-        avaliability: req.body.avaliability,
-        tutor: req.body.id
+        meeting: req.body.meetingLink,
+        subject: req.body.subject,
+        date: req.body.date
     })
     try{
         await appointment.save()
