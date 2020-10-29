@@ -1,0 +1,11 @@
+.nav__right {
+    display: flex;
+}
+.navbar {
+    display: flex;
+}
+.nav-login {
+    display: flex;
+    justify-content: right;
+}
+
