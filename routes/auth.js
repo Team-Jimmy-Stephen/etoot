@@ -24,7 +24,7 @@ router.post('/login', (req, res, next) => {
       if (err) {
         return next(err);
       }
-
+      console.log("logged in")
       return res.redirect("/admin"); 
     });
 
@@ -37,16 +37,7 @@ router.get('/login',  (req, res) => {
 );
 
 router.get('/admin',  connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
-  if(req.user && req.user.admin == true){
-    const articles = await Article.find().sort({
-      createdAt: 'desc'
-    })
-   res.render('articles/admin', { articles : articles})
-  
-  }
-  else{
-    res.status(403).redirect('/')
-  }
+  res.send("logged in")
   });
 
 router.get('/user',
