@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "GCP-postbuild" : "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix client"
+    "GCP-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Team-Jimmy-Stephen/etoot#readme",
   "dependencies": {
     "@google-cloud/secret-manager": "^3.1.0",
+    "@material-ui/icons": "^4.9.1",
     "axios": "^0.21.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.3",
