@@ -119,6 +119,7 @@ app.use(methodOverride('_method'))
 const tutorRouter = require('./routes/tutor');
 const authRouter = require('./routes/auth')
 const appRouter = require('./routes/appointment')
+const path = require('path')
 
 
 app.use('/tutor', tutorRouter)
@@ -132,18 +133,27 @@ app.use('/test', testRouter)
 
 app.set('view engine', 'ejs')
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('frontend/build'))
 
-app.get('/', async(req, res)=>{
-  const tutors = await UserDetails.find().sort({
-      createdAt: 'desc'
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
   })
+}
 
 
 
-  if(req.user && req.user.admin === true){
-    res.redirect("/admin");
-  }
-  else{
-    res.render('tutor/index', { tutor : tutors})
-  }
-})
+// app.get('/', async(req, res)=>{
+//   const tutors = await UserDetails.find().sort({
+//       createdAt: 'desc'
+//   })
+
+
+
+//   if(req.user && req.user.admin === true){
+//     res.redirect("/admin");
+//   }
+//   else{
+//     res.render('tutor/index', { tutor : tutors})
+//   }
+// })
