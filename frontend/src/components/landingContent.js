@@ -18,7 +18,7 @@ function Content() {
                            Find your next tutor. 
                         </h6>
                         <br />
-                        <h6><a className="btn btn-dark start start-two" href="Home">Get Started</a></h6>
+                        <h6><a className="btn btn-dark start start-two" href="home">Browse Tutors</a></h6>
                         
                     </div>
                     <div className="col-sm-9">

@@ -12,8 +12,8 @@ router.get('/admin', async (req,res)=>{
         createdAt: 'desc'
     })
 
-
-    res.render('appointment/index', {appointments: appointments})
+    res.json(appointments)
+    // res.render('appointment/index', {appointments: appointments})
 
 })
 
@@ -25,7 +25,7 @@ router.get('/schedule', (req,res) => {
 router.post('/', async (req, res, next) => {
     console.log(req.body)
     const appointment = new Appointment({
-        tutor: req.body.username,
+        tutorID: req.body.tutorID,
         course: req.body.course,
         meeting: req.body.meetingLink,
         subject: req.body.subject,

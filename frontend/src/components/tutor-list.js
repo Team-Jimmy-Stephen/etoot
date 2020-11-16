@@ -19,6 +19,9 @@ const Tutor = props =>(
                 <h5 className="card-text">Subjects Taught</h5>
                 <p className="card-text">{props.tutor.subjects.map(tutor => {
                     return tutor + "\n"})}</p>
+                <Link className="btn btn-dark start start-two"  to={`/appointment/${props.tutor._id}`}>Schedule Appointment</Link>
+                
+                
             </div>
         </div>
     </div>

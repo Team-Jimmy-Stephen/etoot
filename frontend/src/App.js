@@ -13,8 +13,8 @@ function App() {
     <Router>
     <Route path ="/" exact component={landingpage} />
     
-    <Route path ="/Home" exact component={Navbar} />
-    <Route path ="/Home" exact component={TutorList} />
+    <Route path ="/home" exact component={Navbar} />
+    <Route path ="/home" exact component={TutorList} />
 
     <Route path ="/login" exact component={Navbar} />
     <Route path ="/login" exact component={Login} />
@@ -22,8 +22,8 @@ function App() {
     <Route path ="/register" exact component={Navbar} />
     <Route path ="/register" exact component={Register} />
 
-    <Route path ="/appointment" exact component={Navbar} />
-    <Route path ="/appointment" exact component={CreateAppointment} />
+    <Route path ="/appointment/:id" exact component={Navbar} />
+    <Route path ="/appointment/:id" exact component={CreateAppointment} />
   </Router>
   );
 }

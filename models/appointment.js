@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const User = require('./user')
 
 const appointmentSchema = new mongoose.Schema({
-    tutor: {
+    tutorID: {
         type: String,
         required: true
     },

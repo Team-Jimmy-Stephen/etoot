@@ -18,16 +18,32 @@ export default class CreateAppointment extends Component{
             meetingLink: '',
             subject: '',
             date: new Date(),
-            users: []
+            users: [],
+            tutorID: ''
         }
     }
 
 
     componentDidMount(){
-        this.setState({
-            users: ['test user'],
-            username: 'test user'
+       
+        axios.get(`http://localhost:8080/tutor/`,{
+            params: {
+                id: this.props.match.params.id
+            }
         })
+        .then(
+            res => {
+                console.log(this.props.match.params.id)
+                 this.setState({
+                    users: [res.data.firstname + " " + res.data.lastname],
+                    tutorID: this.props.match.params.id,
+                    username: res.data.username
+
+                })
+            }
+        )
+
+        
     }
 
     onChangeUsername(e){
@@ -60,7 +76,8 @@ export default class CreateAppointment extends Component{
             username : this.state.username,
             meetingLink : this.state.meetingLink,
             subject : this.state.subject,
-            date : this.state.date
+            date : this.state.date,
+            tutorID: this.state.tutorID
 
         }
 

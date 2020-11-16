@@ -11,16 +11,36 @@ const UserDetails = mongoose.model('userInfo', userDetail, 'userInfo')
 
 
 router.get('/', async(req, res)=>{
-    const tutors = await UserDetails.find()
-    .sort({
-        createdAt: 'desc'
-    })
-    .then(tutors => res.json(tutors))
-    .catch(err => res.status(400).json('Error: ' + err))
-    
-    
 
+    if(req.query.id){
+        const tutor = await UserDetails.findById(req.query.id)
+        .then(tutor => res.json(tutor))
+        .catch(err => res.status(400).json('Error: ' + err))
+    }
+    else{
+        const tutors = await UserDetails.find()
+        .sort({
+            createdAt: 'desc'
+        })
+        .then(tutors => res.json(tutors))
+        .catch(err => res.status(400).json('Error: ' + err))
+    }
+        
+
+    
+        
+    
 })
+
+// router.get('/:id', async(req, res)=>{
+//     console.log(req.params)
+//     const tutor = await UserDetails.findById(req.params.id)
+//     .then(tutor => res.json(tutor))
+//     .catch(err => res.status(400).json('Error: ' + err))
+
+// })
+
+
 
 
 module.exports = router
