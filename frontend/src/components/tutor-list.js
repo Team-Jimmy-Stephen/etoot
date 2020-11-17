@@ -40,7 +40,7 @@ export default class TutorList extends Component{
     }
 
     componentDidMount(){
-        axios.get('http://localhost:8080/tutor')
+        axios.get('https://etoot-293020.wl.r.appspot.com/tutor')
         .then(response => {
             this.setState({tutors: response.data})
         })

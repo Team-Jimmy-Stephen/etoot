@@ -62,7 +62,7 @@ export default class CreateAppointment extends Component{
         }
 
         console.log(user)
-        axios.post('http://localhost:8080/register', user)
+        axios.post('https://etoot-293020.wl.r.appspot.com/register', user)
         .then(res => console.log(res.data))
 
         window.location = "/";

@@ -26,7 +26,7 @@ export default class CreateAppointment extends Component{
 
     componentDidMount(){
        
-        axios.get(`http://localhost:8080/tutor/`,{
+        axios.get(`https://etoot-293020.wl.r.appspot.com/tutor`,{
             params: {
                 id: this.props.match.params.id
             }
@@ -82,7 +82,7 @@ export default class CreateAppointment extends Component{
         }
 
         console.log(appointment)
-        axios.post('http://localhost:8080/app', appointment)
+        axios.post('https://etoot-293020.wl.r.appspot.com/app', appointment)
         .then(res => console.log(res.data))
 
         window.location = "/";
