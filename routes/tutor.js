@@ -25,11 +25,6 @@ router.get('/', async(req, res)=>{
         .then(tutors => res.json(tutors))
         .catch(err => res.status(400).json('Error: ' + err))
     }
-        
-
-    
-        
-    
 })
 
 // router.get('/:id', async(req, res)=>{

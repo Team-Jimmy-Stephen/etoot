@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 
-const Tutor = props =>(
+const Appointment = props =>(
     <div className="col-md-4">
         <div className="card mb-4">
             <div className="card-body">
-                <h4 className="card-title">{props.tutor.firstname}  {props.tutor.lastname}</h4>
+                <h4 className="card-title">{props.appointments.meeting}  {props.app.date}</h4>
                 <div className="card mb-4 box-shadow">
                     <div>
                         <img className="card-img-top" src={props.tutor.picture} />
@@ -31,24 +31,34 @@ const Tutor = props =>(
 export default class TutorList extends Component{
     constructor(props){
         super(props)
-        this.state = {tutors: []}
+        this.state = {appointments: []}
 
     }
 
     componentDidMount(){
-        axios.get('https://etoot-293020.wl.r.appspot.com/tutor')
-        .then(response => {
-            this.setState({tutors: response.data})
+        console.log(this.props.match.params.tutorid)
+        axios.get('https://etoot-293020.wl.r.appspot.com/app/admin',{
+            params: {
+                tutorid: this.props.match.params.tutorid
+            }
         })
+        .then(
+            res => {
+                // console.log(res.data)
+                this.setState({
+                    appointments : [res.data]
+                })
+            }
+        )
         .catch((error) => {
             console.log(error)
         })
     }
 
-    tutorList(){
-        console.log(this.state.tutors)
-        return this.state.tutors.map(currentTutor => {
-            return <Tutor tutor={currentTutor} key={currentTutor._id}/>
+    appList(){
+        console.log(this.state.appointments)
+        return this.state.appointments.map(currApp => {
+            return <Appointment app={currApp} key={currApp._id}/>
         })
     }
 
@@ -61,7 +71,7 @@ export default class TutorList extends Component{
                     <div className="container">
                         <div class = "row">
                             
-                            {this.tutorList()}
+                            {this.appList()}
                         </div>
                     </div>
                 </div>

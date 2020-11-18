@@ -3,17 +3,47 @@ const express = require('express')
 const Appointment = require('../models/appointment')
 const router = express.Router()
 
+const connectEnsureLogin = require('connect-ensure-login');
 
-
+router.get('/', async(req, res)=>{
+    console.log(req.query.tutorid)
+    if(req.query.tutorid){
+        const apps = await Appointment.find({tutorID: req.query.tutorid})
+        .then(apps => res.json(apps))
+        .catch(err => res.status(400).json('Error: ' + err))
+    }
+    else{
+        const appointments = await Appointment.find().sort({
+            createdAt: 'desc'
+        })
+        .then(appointments => res.json(appointments))
+        .catch(err => res.status(400).json('Error: ' + err))
+    }
+})
 
 router.get('/admin', async (req,res)=>{
 
-     const appointments = await Appointment.find().sort({
-        createdAt: 'desc'
-    })
 
-    res.json(appointments)
-    // res.render('appointment/index', {appointments: appointments})
+    console.log(req.query.tutorid)
+    if(req.query.tutorid){
+        const apps = await Appointment.find({tutorID: req.query.tutorid})
+        .then(apps => res.json(apps))
+        .catch(err => res.status(400).json('Error: ' + err))
+    }
+    else{
+        const apps = await Appointment.find().sort({
+            createdAt: 'desc'
+        })
+        .then(apps => res.json(apps))
+        .catch(err => res.status(400).json('Error: ' + err))
+    }
+
+    //  const appointments = await Appointment.find().sort({
+    //     createdAt: 'desc'
+    // })
+
+    // res.json(appointments)
+    // // res.render('appointment/index', {appointments: appointments})
 
 })
 

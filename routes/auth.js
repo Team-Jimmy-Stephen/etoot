@@ -24,8 +24,8 @@ router.post('/login', (req, res, next) => {
       if (err) {
         return next(err);
       }
-      console.log("logged in")
-      return res.redirect("/admin"); 
+      console.log(user.id)
+      return res.redirect("/tutorview/" + user.id); 
     });
 
   })(req, res, next);
@@ -38,7 +38,9 @@ router.get('/login',  (req, res) => {
 
 router.get('/admin',  connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
   res.send("logged in")
-  });
+});
+
+
 
 router.get('/user',
   connectEnsureLogin.ensureLoggedIn(),

@@ -7,6 +7,7 @@ import Register from "./components/register"
 import CreateAppointment from "./components/create-appointment"
 import Navbar from "./components/navbar.component"
 import landingpage from "./components/landingpage"
+import TutorView from "./components/tutor-view"
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
 
     <Route path ="/appointment/:id" exact component={Navbar} />
     <Route path ="/appointment/:id" exact component={CreateAppointment} />
+
+    <Route path ="/tutorview/:tutorid" exact component={Navbar} />
+    <Route path ="/tutorview/:tutorid" exact component={TutorView} />
   </Router>
   );
 }
