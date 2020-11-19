@@ -4,40 +4,48 @@ import axios from 'axios'
 
 
 const Appointment = props =>(
-    <div className="col-md-4">
-        <div className="card mb-4">
-            <div className="card-body">
-                <h4 className="card-title">{props.appointments.meeting}  {props.app.date}</h4>
-                <div className="card mb-4 box-shadow">
-                    <div>
-                        <img className="card-img-top" src={props.tutor.picture} />
-                    </div>
-                </div>
-                <p className="card-text">{props.tutor.description}</p>
+   
 
+    <tr>
+        <td>
+            <p className="lead mt-2">
+                {props.app.meeting}
+            </p>
+        </td>
+              <td>
+            <p className="lead mt-2">
+                {props.app.subject}
+            </p>
+        </td>
+              <td>
+            <p className="lead mt-2">
+                {props.app.date.substring(0,10)}
+            </p>
+        </td>
 
-                <h5 className="card-text">Subjects Taught</h5>
-                <p className="card-text">{props.tutor.subjects.map(tutor => {
-                    return tutor + "\n"})}</p>
-                <Link className="btn btn-dark start start-two"  to={`/appointment/${props.tutor._id}`}>Schedule Appointment</Link>
-                
-                
+        <td>
+            <div className="container">
+                <button type="button" class="btn btn-success m-1">Accept</button>
+                <button type="button" class="btn btn-danger m-1">Decline</button>
             </div>
-        </div>
-    </div>
+        </td>
+    </tr>
 )
 
 
-export default class TutorList extends Component{
+
+
+export default class TutorView extends Component{
     constructor(props){
         super(props)
+        console.log(this.props)
         this.state = {appointments: []}
 
     }
 
     componentDidMount(){
         console.log(this.props.match.params.tutorid)
-        axios.get('https://etoot-293020.wl.r.appspot.com/app/admin',{
+        axios.get('http://localhost:8080/app',{
             params: {
                 tutorid: this.props.match.params.tutorid
             }
@@ -45,13 +53,11 @@ export default class TutorList extends Component{
         .then(
             res => {
                 // console.log(res.data)
-                this.setState({
-                    appointments : [res.data]
-                })
+                this.setState({ appointments : res.data })
             }
         )
         .catch((error) => {
-            console.log(error)
+            window.location = "/login"
         })
     }
 
@@ -65,17 +71,23 @@ export default class TutorList extends Component{
 
     render(){
         return(
-            <div className="container">
-                <h3>Tutors</h3> 
-                <div className="album py-5 bg-light">
-                    <div className="container">
-                        <div class = "row">
-                            
-                            {this.appList()}
-                        </div>
-                    </div>
-                </div>
+            <div className="container mt-5">
+                <h3>Appointments</h3>
+                <table className="table mt-3">
+                    <thead className="thead-light">
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Accept/Decline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { this.appList() }
+                    </tbody>
+                </table>
             </div>
+           
         )
     }
 }

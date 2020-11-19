@@ -91,7 +91,7 @@ export default class CreateAppointment extends Component{
 
 render(){
     return(
-        <div className="container">
+        <div className="container mt-5">
             <h3> Create New Appointment</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">

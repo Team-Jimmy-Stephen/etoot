@@ -25,16 +25,16 @@ router.post('/login', (req, res, next) => {
         return next(err);
       }
       console.log(user.id)
-      return res.redirect("/tutorview/" + user.id); 
+      return res.send(user.id); 
     });
 
   })(req, res, next);
 });
 
-router.get('/login',  (req, res) => {
-  res.render('auth/login')
-}
-);
+// router.get('/login',  (req, res) => {
+//   res.render('auth/login')
+// }
+// );
 
 router.get('/admin',  connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
   res.send("logged in")

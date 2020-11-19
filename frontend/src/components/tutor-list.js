@@ -55,7 +55,7 @@ export default class TutorList extends Component{
 
     render(){
         return(
-            <div className="container">
+            <div className="container mt-5">
                 <h3>Tutors</h3> 
                 <div className="album py-5 bg-light">
                     <div className="container">

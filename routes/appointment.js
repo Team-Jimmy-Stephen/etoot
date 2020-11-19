@@ -5,7 +5,7 @@ const router = express.Router()
 
 const connectEnsureLogin = require('connect-ensure-login');
 
-router.get('/', async(req, res)=>{
+router.get('/', /*connectEnsureLogin.ensureLoggedIn(),*/ async(req, res)=>{
     console.log(req.query.tutorid)
     if(req.query.tutorid){
         const apps = await Appointment.find({tutorID: req.query.tutorid})
@@ -37,14 +37,6 @@ router.get('/admin', async (req,res)=>{
         .then(apps => res.json(apps))
         .catch(err => res.status(400).json('Error: ' + err))
     }
-
-    //  const appointments = await Appointment.find().sort({
-    //     createdAt: 'desc'
-    // })
-
-    // res.json(appointments)
-    // // res.render('appointment/index', {appointments: appointments})
-
 })
 
 router.get('/schedule', (req,res) => {
@@ -74,7 +66,7 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/:id', async (req, res) => {
   await Appointment.findByIdAndDelete(req.params.id)
-  res.redirect('/app/admin')
+  res.send('resource deleted')
 })
 
   

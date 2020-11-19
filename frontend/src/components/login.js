@@ -16,14 +16,6 @@ export default class CreateAppointment extends Component{
         }
     }
 
-
-    componentDidMount(){
-        this.setState({
-            users: ['test user'],
-            username: 'test user'
-        })
-    }
-
     onChangeUsername(e){
         this.setState({
             username: e.target.value
@@ -46,16 +38,22 @@ export default class CreateAppointment extends Component{
 
         console.log(user)
         axios.post('http://localhost:8080/login', user)
-        .then(res => console.log(res.data))
+        .then(res => {
+            const uri = "/tutorview/" + res.data 
+            console.log(uri)
+            window.location = uri
+        })
 
-        window.location = "/";
+        // window.location = "/";
     }
 
 
 render(){
     return(
-        <div className="container">
-            <h3> Create New Account</h3>
+        <div className="container mt-5">
+
+            <h3>Sign On In, Otter!</h3>
+            
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <label>Username: </label>
@@ -67,14 +65,14 @@ render(){
 
                 <div className="form-group">
                     <label>Password: </label>
-                    <input type="text" required className="form-control"
+                    <input type="password" required className="form-control"
                     value={this.state.password}
                     onChange={this.onChangePassword} />
                 </div>
 
                 
                 <div className="form-group">
-                    <input type="submit" value="Schedule Appointment" className="btn btn-primary" />
+                    <input type="submit" value="Sign in" className="btn btn-primary" />
                 </div>
             </form>
         </div>

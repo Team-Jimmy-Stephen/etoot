@@ -63,15 +63,18 @@ export default class CreateAppointment extends Component{
 
         console.log(user)
         axios.post('https://etoot-293020.wl.r.appspot.com/register', user)
-        .then(res => console.log(res.data))
+        .then(res => {
+            // console.log(res.data)
+            window.location = "/";
+        })
 
-        window.location = "/";
+        
     }
 
 
 render(){
     return(
-        <div className="container">
+        <div className="container mt-5">
             <h3> Create New Account</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
