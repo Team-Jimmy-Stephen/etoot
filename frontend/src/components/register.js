@@ -87,7 +87,7 @@ render(){
 
                 <div className="form-group">
                     <label>Password: </label>
-                    <input type="text" required className="form-control"
+                    <input type="password" required className="form-control"
                     value={this.state.password}
                     onChange={this.onChangePassword} />
                 </div>

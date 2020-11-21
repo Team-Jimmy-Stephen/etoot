@@ -112,7 +112,7 @@ render(){
                 </div>
 
                 <div className="form-group">
-                    <label>Meeting Link: </label>
+                    <label>Email: </label>
                     <input type="text" required className="form-control"
                     value={this.state.meetingLink}
                     onChange={this.onChangeMeetingLink} />

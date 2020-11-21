@@ -45,7 +45,7 @@ export default class TutorView extends Component{
 
     componentDidMount(){
         console.log(this.props.match.params.tutorid)
-        axios.get('http://localhost:8080/app',{
+        axios.get('https://etoot-293020.wl.r.appspot.com/app',{
             params: {
                 tutorid: this.props.match.params.tutorid
             }
@@ -76,7 +76,7 @@ export default class TutorView extends Component{
                 <table className="table mt-3">
                     <thead className="thead-light">
                         <tr>
-                            <th>Meeting</th>
+                            <th>Email</th>
                             <th>Subject</th>
                             <th>Date</th>
                             <th>Accept/Decline</th>

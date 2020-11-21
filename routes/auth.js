@@ -31,11 +31,6 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
-// router.get('/login',  (req, res) => {
-//   res.render('auth/login')
-// }
-// );
-
 router.get('/admin',  connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
   res.send("logged in")
 });
@@ -47,9 +42,9 @@ router.get('/user',
   (req, res) => res.send({user: req.user})
 );
 
-router.get("/register", function (req, res) { 
-  res.render("auth/register"); 
-}); 
+// router.get("/register", function (req, res) { 
+//   res.render("auth/register"); 
+// }); 
 
 router.post("/register", async(req, res) => { 
     var username = req.body.username 
