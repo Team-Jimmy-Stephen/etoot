@@ -38,6 +38,7 @@
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-local-mongoose": "^6.0.1",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0"
   }
 }

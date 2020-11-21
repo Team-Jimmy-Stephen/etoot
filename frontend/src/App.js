@@ -8,10 +8,19 @@ import CreateAppointment from "./components/create-appointment"
 import Navbar from "./components/navbar.component"
 import landingpage from "./components/landingpage"
 import TutorView from "./components/tutor-view"
+import { Helmet } from 'react-helmet'
 
 function App() {
   return (
+    
     <Router>
+
+
+    <Helmet>
+      <title>Etootus</title>
+    </Helmet>
+
+
     <Route path ="/" exact component={landingpage} />
     
     <Route path ="/home" exact component={Navbar} />

@@ -12,13 +12,14 @@ export default class Navbar extends Component{
                         <Link to="/" className="nav-link">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="https://jimmyongresume.com/" className="nav-link">Locations and Hours</Link>
+                        <Link to="/home" className="nav-link">Browse Tutors</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/appointment" className="nav-link" href="">Schedule Class</Link>
+                        <Link to="#" className="nav-link" href="">Services</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="mailto:contact@jimmyongresume.com" className="nav-link" href="">Contact</Link>
+                        {/* <a href="https://jimmyjongs.com">Contact</a>  */}
+                        <Link to="/" className="nav-link" href="https://jimmyjongs.com">Contact</Link>
                     </li>
                     </ul>
                 </div>
@@ -26,6 +27,9 @@ export default class Navbar extends Component{
                     <ul className="navbar-nav mr-auto"> 
                     <li className="nav-login">
                         <Link to="/login" className="nav-link" href="">Login</Link>
+                    </li>
+                    <li className="nav-login">
+                        <Link to="/register" className="nav-link" href="">Register</Link>
                     </li>
                     </ul>
                     

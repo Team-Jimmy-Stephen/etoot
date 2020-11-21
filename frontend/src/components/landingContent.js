@@ -11,7 +11,7 @@ function Content() {
                     <div className="col-sm-3 talk">
                         <br />
                         <br />
-                        <h1>Etoot</h1>
+                        <h1>Etootus</h1>
                         <h1>Tutoring</h1>
                         <br />
                         <h6 className="bold-four">
